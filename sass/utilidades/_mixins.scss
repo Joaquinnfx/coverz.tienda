@@ -1,0 +1,34 @@
+@mixin button-styles ($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  padding: 12px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  
+}
+.menu-button{
+    @include button-styles($primary-color, white);
+    
+}
+
+.carrito-button{
+    @include button-styles($primary-color, white);
+    &:hover{
+        transform:rotate(-5deg);
+        transition-duration: 0.3s;
+    }
+}   
+
+.login-button{
+    @include button-styles(black, white);
+    &:hover{
+        background-color: $primary-color;
+    }
+}
+

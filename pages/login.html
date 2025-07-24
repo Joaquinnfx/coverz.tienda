@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="login, signin, registro, Coverz">
+    <title>Login | -Coverz-</title>
+    <link rel="stylesheet" href="/plugins/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link
+      rel="shortcut icon"
+      href="assets/Logo_Coverz.jpg"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+</head>
+<body class="body-bg">
+    <header class="sticky-top">
+      <div class="header-container1">
+        <div class="h1-container">
+          <h1>Usuario</h1>
+        </div>
+      </div>
+      <div class="header-container2">
+        <div class="nav-container">
+          <form class="buscador" action="/search/" method="GET">
+            <input
+              class="buscador-input"
+              type="text"
+              name="q"
+              placeholder="¿Que estás buscando?"
+            />
+            <button class="btn-buscar"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
+             
+          </form>
+
+          <nav class="navbar">
+            <ul class="nav-ul">
+              <li class="li-a"><a href="/index.html">Inicio</a></li>
+              <li class="li-a">
+                <a href="/pages/telefonos.html">Telefonos</a>
+              </li>
+              <li class="li-a">
+                <a href="/pages/accesorios.html">Accesorios</a>
+              </li>
+              <li class="li-a"><a href="/pages/fundas.html">Fundas</a></li>
+              <li class="li-a">
+                <a href="/pages/repuestos.html">Repuestos</a>
+              </li>
+              <li class="li-a"><a href="/pages/contacto.html">Contacto</a></li>
+              <li class="li-a"><a href="/pages/login.html">Usuario</a></li>
+              <li class="li-a"><a href="/pages/carrito.html">Carrito</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    
+    <main class="contenedor">
+        <div class="login-signin">
+        <form class="login-form">
+            <h2>Iniciar sesión</h2>
+            <br>
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <button type="button" class="login-button" onclick="loguear()">Iniciar sesión</button>
+        </form>
+        <form class="signin-form"> 
+            <h2>Registrarse</h2>
+            <br>
+            <label for="new-username">Nuevo Usuario:</label>
+            <input type="text" id="new-username" name="new-username" required><br><br>
+
+            <label for="new-password">Nueva Contraseña:</label>
+            <input type="password" id="new-password" name="new-password" required><br><br>
+
+            <button type="button" class="login-button">Registrarse</button>
+        </form>
+        </div>
+
+
+       
+
+
+    </main>
+  <section class="banner">
+      <div class="titulo-banner"><h3>Newsletter</h3></div>
+      <div class="p-banner"><p>Suscribite y recibí nuestras ofertas</p></div>
+      <div class="form-banner">
+        <form class="contacto" id="form-contacto" action="" method="POST">
+          <div class="mb-3">
+            <label for="nombre" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="mail"
+              placeholder="Ingresa tu mail"
+              required
+            />
+          </div>
+        </form>
+        <button class="btn-enviar" type="submit">Enviar</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="foot-container">
+      <div class="div1-foot">
+        <h3>Ayuda</h3>
+        <ul class="ul-foot">
+          <li class="li-foot">Puntos de venta</li>
+          <li class="li-foot">Venta mayorista</li>
+          <li class="li-foot">Acerca de Coverz</li>
+          <li class="li-foot">Cambios y devoluciones</li>
+        </ul>
+      </div>
+      <div class="div2-foot">
+        <h3>Contactanos</h3>
+        <ul class="ul-foot">
+        <li class="li-foot">Respondemos a la brevedad</li>
+        <li class="li-foot">coverz.accesorios@gmail.com</li>
+        </ul>
+      </div>
+      <div class="div3-foot">
+        <h3>Seguinos</h3>
+        <div class="content-items">
+          
+          <ul class="ul-items">
+            <li><i class="fa-brands fa-square-instagram fa-fade fa-2xl"></i></li>
+            <li><i class="fa-brands fa-square-facebook fa-fade fa-2xl"></i></li>
+          </ul>
+        </div>
+      </div>
+      <div class="div4-foot">Seguinos</div>
+      
+      </div>
+      <p> <i class="fa-solid fa-truck fa-lg"></i>  Envíos a todo el país</p> 
+      <p>© 2025 Coverz. Todos los derechos reservados.</p> 
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/plugins/fontawesome/js/all.min.js"></script>
+     <script src="/Js/login.js"></script>
+</body>
+</html>
