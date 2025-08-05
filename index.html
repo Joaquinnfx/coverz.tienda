@@ -25,14 +25,14 @@
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
     />
-   
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body class="body-bg">
     <header class="sticky-top">
       <div class="header-container1">
         <div class="h1-container">
           <h1 class="logo">
-            <img src="/assets/Logo_Coverz - sin-fondo.png" alt="Logo" />
+            <img src="./assets/Logo_Coverz - sin-fondo.png" alt="Logo" />
           </h1>
         </div>
       </div>
@@ -45,8 +45,9 @@
               name="q"
               placeholder="¿Que estás buscando?"
             />
-            <button class="btn-buscar"> <i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
-             
+            <button class="btn-buscar">
+              <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+            </button>
           </form>
 
           <nav class="navbar">
@@ -64,7 +65,10 @@
               </li>
               <li class="li-a"><a href="pages/contacto.html">Contacto</a></li>
               <li class="li-a"><a href="pages/login.html">Usuario</a></li>
-              <li class="li-a"><a href="pages/carrito.html">Carrito</a></li>
+              <li class="li-a cart-icon">
+                <a href="pages/carrito.html">Carrito</a>
+                <span id="carritoContador" class="contador" style="display: none;">0</span>
+              </li>
             </ul>
           </nav>
         </div>
@@ -72,90 +76,49 @@
     </header>
     <main class="contenedor">
       <!--Carousel-->
-
-      <section id="section-car">
-        <div id="carouselExampleCaptions" class="carousel slide">
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div>
+      <section class="carousel">
+        <div
+          id="carouselExampleSlidesOnly"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
           <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item active" data-bs-interval="3000">
               <img
-                src="assets/iphone-15-pro-max-Photoroom.png"
+                src="./assets/img-car-new.jpg"
                 class="d-block w-100"
                 alt="..."
               />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Iphone 15 Pro Max</h5>
-                <p></p>
-              </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" data-bs-interval="3000">
               <img
-                src="assets/iphone-13-Photoroom.png"
+                src="./assets/img-car-new2.jpg"
                 class="d-block w-100"
                 alt="..."
               />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Iphone 13</h5>
-                <p></p>
-              </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" data-bs-interval="3000">
               <img
-                src="assets/moto-g54-Photoroom.png"
+                src="./assets/img-car-new3.jpg"
                 class="d-block w-100"
                 alt="..."
               />
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Motorola G54</h5>
-                <p></p>
-              </div>
             </div>
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev"
-            style="right: 500px"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next"
-            style="left: 220px"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-          </button>
         </div>
       </section>
+      
+      <!--Productos Destacados-->
+      <section class="productos-destacados">
+        <div class="container">
+          <h2 class="text-center mb-4">Productos Destacados</h2>
+          <div class="row" id="productos-destacados">
+            <!-- Los productos destacados se cargarán dinámicamente aquí -->
+          </div>
+        </div>
+      </section>
+      
       <!--Categorias-->
-
       <section class="categorias">
         <!--Card-->
         <div class="card" id="cards">
@@ -163,9 +126,7 @@
             <img src="assets/FUNDAS-TITULO2.jpg" alt="Fundas" />
           </div>
           <div class="card-body">
-            <a href="pages/fundas.html"
-              ><h2 class="card-title">Fundas</h2></a
-            >
+            <a href="pages/fundas.html"><h2 class="card-title">Fundas</h2></a>
 
             <div class="card-text">
               <p>Protegé tu celular con las mejores fundas</p>
@@ -225,60 +186,56 @@
       <div class="titulo-banner"><h3>Newsletter</h3></div>
       <div class="p-banner"><p>Suscribite y recibí nuestras ofertas</p></div>
       <div class="form-banner">
-        <form class="contacto" id="form-contacto" action="" method="POST">
+        <form class="contacto" id="newsletterForm" action="" method="POST">
           <div class="mb-3">
             <label for="nombre" class="form-label"></label>
             <input
-              type="text"
+              type="email"
               class="form-control"
-              id="mail"
+              id="newsletterEmail"
               placeholder="Ingresa tu mail"
               required
             />
           </div>
+          <button class="btn-enviar" type="submit">Enviar</button>
         </form>
-        <button class="btn-enviar" type="submit">Enviar</button>
       </div>
     </section>
 
     <footer class="footer">
       <div class="foot-container">
-      <div class="div1-foot">
-        <h3>Ayuda</h3>
-        <ul class="ul-foot">
-          <li class="li-foot">Puntos de venta</li>
-          <li class="li-foot">Venta mayorista</li>
-          <li class="li-foot">Acerca de Coverz</li>
-          <li class="li-foot">Cambios y devoluciones</li>
-        </ul>
-      </div>
-      <div class="div2-foot">
-        <h3>Contactanos</h3>
-        <ul class="ul-foot">
-        <li class="li-foot">Respondemos a la brevedad</li>
-        <li class="li-foot">coverz.accesorios@gmail.com</li>
-        </ul>
-      </div>
-      <div class="div3-foot">
-        <h3>Seguinos</h3>
-        <div class="content-items">
-          
-          <ul class="ul-items">
-            <li><i class="fa-brands fa-square-instagram fa-fade fa-2xl"></i></li>
-            <li><i class="fa-brands fa-square-facebook fa-fade fa-2xl"></i></li>
+        <div class="div1-foot">
+          <h3>Ayuda</h3>
+          <ul class="ul-foot">
+            <li class="li-foot">Puntos de venta</li>
+            <li class="li-foot">Venta mayorista</li>
+            <li class="li-foot">Acerca de Coverz</li>
+            <li class="li-foot">Cambios y devoluciones</li>
           </ul>
         </div>
+        <div class="div1-foot">
+          <h3>Contactanos</h3>
+          <ul class="ul-foot">
+            <li class="li-foot">Respondemos a la brevedad</li>
+            <li class="li-foot">coverz.accesorios@gmail.com</li>
+          </ul>
+        </div>
+        <div class="div1-foot">
+          <h3>Seguinos</h3>
+          <div class="content-items">
+            <p><i class="fa-brands fa-square-instagram fa-fade fa-2xl"></i></p>
+            <p><i class="fa-brands fa-square-facebook fa-fade fa-2xl"></i></p>
+          </div>
+        </div>
       </div>
-      
-      
-      </div>
-      <p> <i class="fa-solid fa-truck fa-lg"></i>  Envíos a todo el país</p> 
-      <p>© 2025 Coverz. Todos los derechos reservados.</p> 
+      <p><i class="fa-solid fa-truck-fast fa-lg"></i> Envíos a todo el país</p>
+      <p>© 2025 Coverz. Todos los derechos reservados.</p>
     </footer>
-     <script
+    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
+    <script src="./Js/ecommerce.js"></script>
   </body>
 </html>

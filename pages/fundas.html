@@ -3,31 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Fundas para celulares en Mar del Plata: modelos de silicona, con charms, personalizadas y más. Protegé tu celular con estilo."
-    />
-    <meta name="keywords" content="fundas, celular, venta" />
+    <meta name="description" content="Fundas para celulares en Mar del Plata. Diseños únicos y protección premium para iPhone y Android. Envíos rápidos.">
+    <meta name="keywords" content="fundas, celular, iphone, samsung, Coverz, protección" />
     <title>Fundas | -Coverz-</title>
-    <link rel="stylesheet" href="/plugins/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="../plugins/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+          <link
+        rel="shortcut icon"
+        href="../assets/Logo_Coverz.jpg"
+        type="image/x-icon"
+      />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
     />
-    <link
-      rel="shortcut icon"
-      href="assets/Logo_Coverz.jpg"
-      type="image/x-icon"
-    />
+    <!-- SweetAlert2 para notificaciones -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body class="body-bg">
     <header class="sticky-top">
       <div class="header-container1">
         <div class="h1-container">
-          <h1>Fundas</h1>
+          <h1>
+            Fundas
+          </h1>
         </div>
       </div>
       <div class="header-container2">
@@ -40,12 +41,11 @@
               placeholder="¿Que estás buscando?"
             />
             <button class="btn-buscar"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
-             
           </form>
 
-         <nav class="navbar">
+          <nav class="navbar">
             <ul class="nav-ul">
-              <li class="li-a"><a href="/index.html">Inicio</a></li>
+              <li class="li-a"><a href="../index.html">Inicio</a></li>
               <li class="li-a">
                 <a href="telefonos.html">Telefonos</a>
               </li>
@@ -58,162 +58,77 @@
               </li>
               <li class="li-a"><a href="contacto.html">Contacto</a></li>
               <li class="li-a"><a href="login.html">Usuario</a></li>
-              <li class="li-a"><a href="carrito.html">Carrito</a></li>
+              <li class="li-a cart-icon">
+                <a href="carrito.html">Carrito</a>
+                <span id="carritoContador" class="contador" style="display: none;">0</span>
+              </li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
-    <!--Main-->
+    
     <main class="contenedor">
-      <section class="products" id="listProducts">
-        <!--Product-->
-        <div class="card-p" id="cards-p">
-          <div class="card-img">
-            <img src="/assets/funda_silicona-Photoroom.png" alt="Funda" />
-          </div>
-          <div class="card-body">
-            <a href="#"><h2 class="card-title">Silicon case</h2></a>
-
-            <div class="card-text">
-              <p>Las mejores fundas de Silicona para tu celular</p>
+      <!-- Filtros -->
+      <section class="filtros-section">
+        <div class="filtros-container">
+          <h3>Filtros</h3>
+          <div class="filtros-grid">
+            <div class="filtro-grupo">
+              <label for="filtro-marca">Marca:</label>
+              <select id="filtro-marca" class="form-select">
+                <option value="">Todas las marcas</option>
+              </select>
             </div>
-            <div class="price">
-              <span id="ofert"> $12 </span>
-              <p id="current-price">$10</p>
+            
+            <div class="filtro-grupo">
+              <label for="filtro-precio">Rango de precio:</label>
+              <select id="filtro-precio" class="form-select">
+                <option value="">Todos los precios</option>
+                <option value="0-10">Hasta $10</option>
+                <option value="10-20">$10 - $20</option>
+                <option value="20-30">$20 - $30</option>
+                <option value="30-9999">Más de $30</option>
+              </select>
             </div>
-            <button class="btn-add" type="button" data-id="1">
-              Agregar al carrito
-            </button>
-          </div>
-        </div>
-
-        <!--Product-->
-
-        <div class="card-p" id="cards-p">
-          <div class="card-img">
-            <img src="/assets/funda_negra-Photoroom.png" alt="Funda" />
-          </div>
-          <div class="card-body">
-            <a href="#"><h2 class="card-title">Funda negra</h2></a>
-
-            <div class="card-text">
-              <p>All is better in black</p>
+            
+            <div class="filtro-grupo">
+              <label class="checkbox-label">
+                <input type="checkbox" id="filtro-destacados">
+                Solo destacados
+              </label>
             </div>
-            <div class="price">
-              <span id="ofert"> $12 </span>
-              <p id="current-price">$10</p>
-            </div>
-            <button class="btn-add" type="button" data-id="1">
-              Agregar al carrito
-            </button>
-          </div>
-        </div>
-
-        <!--Product-->
-        <div class="card-p" id="cards-p">
-          <div class="card-img">
-            <img src="/assets/funda_astronauta-Photoroom.png" alt="Funda" />
-          </div>
-          <div class="card-body">
-            <a href="#"><h2 class="card-title">Funda Astronauta</h2></a>
-
-            <div class="card-text">
-              <p>Esta funda te llevara al espacio</p>
-            </div>
-            <div class="price">
-              <span id="ofert"> $12 </span>
-              <p id="current-price">$10</p>
-            </div>
-            <button class="btn-add" type="button" data-id="1">
-              Agregar al carrito
-            </button>
-          </div>
-        </div>
-
-        <!--Product-->
-        <div class="card-p" id="cards-p">
-          <div class="card-img">
-            <img src="/assets/Funda_diseñoresina-Photoroom.png" alt="Funda" />
-          </div>
-          <div class="card-body">
-            <a href="#"
-              ><h2 class="card-title">Funda con diseño en resina</h2></a
-            >
-
-            <div class="card-text">
-              <p>Tu diseño favorito</p>
-            </div>
-            <div class="price">
-              <span id="ofert"> $12 </span>
-              <p id="current-price">$10</p>
-            </div>
-            <button class="btn-add" type="button" data-id="1">
-              Agregar al carrito
-            </button>
-          </div>
-        </div>
-
-        <!--product-->
-        <div class="card-p" id="cards-p">
-          <div class="card-img">
-            <img src="/assets/Fundas_puffer-Photoroom.png" alt="Funda" />
-          </div>
-          <div class="card-body">
-            <a href="#"><h2 class="card-title">Puffer</h2></a>
-
-            <div class="card-text">
-              <p>Las Puffer más lindas</p>
-            </div>
-            <div class="price">
-              <span id="ofert"> $12 </span>
-              <p id="current-price">$10</p>
-            </div>
-            <button class="btn-add" type="button" data-id="1">
-              Agregar al carrito
-            </button>
-          </div>
-        </div>
-
-        <!--product-->
-        <div class="card-p" id="cards-p">
-          <div class="card-img">
-            <img src="/assets/Fundas_Simpsons-Photoroom.png" alt="Funda" />
-          </div>
-          <div class="card-body">
-            <a href="#"><h2 class="card-title">Los Simpsons</h2></a>
-
-            <div class="card-text">
-              <p>Las mejores fundas de Los Simpsons</p>
-            </div>
-            <div class="price">
-              <span id="ofert"> $12 </span>
-              <p id="current-price">$10</p>
-            </div>
-            <button class="btn-add" type="button" data-id="1">
-              Agregar al carrito
-            </button>
           </div>
         </div>
       </section>
+
+      <!-- Productos -->
+      <section class="products" id="listProducts">
+        <!-- Los productos se cargarán dinámicamente aquí -->
+        <div class="loading">
+          <i class="fas fa-spinner fa-spin fa-2x"></i>
+          <p>Cargando productos...</p>
+        </div>
+      </section>
     </main>
+
     <section class="banner">
       <div class="titulo-banner"><h3>Newsletter</h3></div>
       <div class="p-banner"><p>Suscribite y recibí nuestras ofertas</p></div>
       <div class="form-banner">
-        <form class="contacto" id="form-contacto" action="" method="POST">
+        <form class="contacto" id="newsletterForm" action="" method="POST">
           <div class="mb-3">
             <label for="nombre" class="form-label"></label>
             <input
-              type="text"
+              type="email"
               class="form-control"
-              id="mail"
+              id="newsletterEmail"
               placeholder="Ingresa tu mail"
               required
             />
           </div>
+          <button class="btn-enviar" type="submit">Enviar</button>
         </form>
-        <button class="btn-enviar" type="submit">Enviar</button>
       </div>
     </section>
 
@@ -228,32 +143,38 @@
           <li class="li-foot">Cambios y devoluciones</li>
         </ul>
       </div>
-      <div class="div2-foot">
+      <div class="div1-foot">
         <h3>Contactanos</h3>
         <ul class="ul-foot">
         <li class="li-foot">Respondemos a la brevedad</li>
         <li class="li-foot">coverz.accesorios@gmail.com</li>
         </ul>
       </div>
-      <div class="div3-foot">
+      <div class="div1-foot">
         <h3>Seguinos</h3>
         <div class="content-items">
-          
-          <ul class="ul-items">
-            <li><i class="fa-brands fa-square-instagram fa-fade fa-2xl"></i></li>
-            <li><i class="fa-brands fa-square-facebook fa-fade fa-2xl"></i></li>
-          </ul>
+            <p><i class="fa-brands fa-square-instagram fa-fade fa-2xl"></i></p>
+            <p><i class="fa-brands fa-square-facebook fa-fade fa-2xl"></i></p>
         </div>
       </div>
-      <div class="div4-foot">Seguinos</div>
-      
-      </div>
-      <p> <i class="fa-solid fa-truck fa-lg"></i>  Envíos a todo el país</p> 
+     </div>
+      <p><i class="fa-solid fa-truck-fast fa-lg"></i>  Envíos a todo el país</p> 
       <p>© 2025 Coverz. Todos los derechos reservados.</p> 
     </footer>
-    <script src="/Js/listProducts/fundas.js"></script>
-    <script src="/Js/carrito.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/plugins/fontawesome/js/all.min.js"></script>
+    <script src="../plugins/fontawesome/js/all.min.js"></script>
+    <script src="../Js/ecommerce.js"></script>
+    <script>
+      // Inicializar la página de fundas
+      document.addEventListener('DOMContentLoaded', async () => {
+        try {
+          await window.ecommerce.initPromise;
+          window.ecommerce.mostrarProductosCategoria('fundas');
+        } catch (error) {
+          console.error('Error durante la inicialización:', error);
+        }
+      });
+    </script>
   </body>
 </html>
